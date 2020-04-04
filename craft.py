@@ -77,7 +77,8 @@ class CRAFT(nn.Module):
 
         y = self.conv_cls(feature)
 
-        return y.permute(0,2,3,1), feature
+        return y.permute(0, 2, 3, 1), feature
+
 
 if __name__ == '__main__':
     model = CRAFT(pretrained=True).cuda()

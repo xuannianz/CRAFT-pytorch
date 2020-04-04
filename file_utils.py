@@ -60,6 +60,9 @@ def saveResult(img_file, img, boxes, dirname='./result/', verticals=None, texts=
 
                 poly = poly.reshape(-1, 2)
                 cv2.polylines(img, [poly.reshape((-1, 1, 2))], True, color=(0, 0, 255), thickness=2)
+                if poly.shape[0] == 14:
+                    for i in range(14):
+                        cv2.circle(img, tuple(poly[i].astype(np.int32)), 2, (0, 255, 0), -1)
                 ptColor = (0, 255, 255)
                 if verticals is not None:
                     if verticals[i]:
